@@ -2,5 +2,5 @@
 
 ### Course "Neural networks" https://stepik.org/course/401
 
-It gives basic knowlege of "Neural networks" theory as well as basic knowlege of using NumPy.
-NumPy - python's library for convinient operating with arrays 
+It gives a basic knowlege of "Neural networks" theory as well as a basic knowlege of using NumPy.
+NumPy - a python's library for convinient operating with arrays 
