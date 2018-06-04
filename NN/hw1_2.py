@@ -106,12 +106,36 @@ class Neuron:
         и 0, если второй (спуск не достиг минимума за отведённое время).
         """
 
+        current_step = 0;
+        idx = np.arange(X[:, 0].size)
+        np.random.shuffle(idx)
+        # batch_idx = idx[0:batch_size]
+        batch_idx = idx[batch_size:batch_size*2]
+        # batch_idx2 = idx[batch_size:batch_size*2]
 
+        batch_X = X[batch_idx]
+        batch_y = y[batch_idx]
 
+        print(X)
+        print(batch_X)
+        
+        print(y)
+        print(batch_y)
 
-        # Этот метод необходимо реализовать
+      #   res = update_mini_batch(batch_X, batch_y, learning_rate, eps)
 
-        pass
+      #   while current_step < 200 or res:
+     	# 	current_step = current_step + 1
+     	# 	batch_X = 1
+      #   	batch_y = 1
+     	# 	res = update_mini_batch(batch_X, batch_y, learning_rate, eps)
+
+     	# if (current_step < 200 or res) :
+     	# 	return 1
+     	
+     	
+     	return 0
+
 
     def update_mini_batch(self, X, y, learning_rate, eps):
         """
@@ -209,6 +233,21 @@ def compute_grad_analytically(neuron, X, y, J_prime=J_quadratic_derivative):
 
 
 
+# np.random.seed(42)
+# n = 10
+# m = 5
+
+# X = 20 * np.random.sample((n, m)) - 10
+# y = (np.random.random(n) < 0.5).astype(np.int)[:, np.newaxis]
+# w = 2 * np.random.random((m, 1)) - 1
+
+# neuron = Neuron(w)
+# neuron.update_mini_batch(X, y, 0.1, 1e-5)
+
+# idx = np.arange(X.shape[0])
+
+# print(neuron.w)
+
 np.random.seed(42)
 n = 10
 m = 5
@@ -218,6 +257,4 @@ y = (np.random.random(n) < 0.5).astype(np.int)[:, np.newaxis]
 w = 2 * np.random.random((m, 1)) - 1
 
 neuron = Neuron(w)
-neuron.update_mini_batch(X, y, 0.1, 1e-5)
-
-print(neuron.w)
+neuron.SGD(X, y, 5)
